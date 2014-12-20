@@ -5,7 +5,9 @@ var start_time = 0;
 var hpm = 0;
 var ratio = 0;
 
-data.chars = " jfkdlsahgyturieowpqbnvmcxz6758493021`-=[]\\;',./ABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()_+{}|:\"<>?";
+data.chars = " jfkdlsahgyturieowpqbnvmcxz6758493021-=[]\\;',./ABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()_+{}|:\"<>?";
+// data.chars = " jfkdlsahgyturieowpqbnvmcxz6758493021`-=[]\\;',./ABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()_+{}|:\"<>?";
+
 data.consecutive = 5;
 data.word_length = 7;
 
@@ -70,13 +72,13 @@ function keyHandler(e) {
     if(key == data.word[data.word_index]) {
         hits_correct += 1;
         data.in_a_row[key] += 1;
-        (new Audio("click.wav")).play();
+        // (new Audio("click.wav")).play();
     }
     else {
         hits_wrong += 1;
         data.in_a_row[data.word[data.word_index]] = 0;
         data.in_a_row[key] = 0;
-        (new Audio("clack.wav")).play();
+        // (new Audio("clack.wav")).play();
         data.word_errors[data.word_index] = true;
     }
     data.word_index += 1;
@@ -98,9 +100,9 @@ function keyHandler(e) {
 
 
 function level_up() {
-    if (data.level + 1 <= data.chars.length - 1) {
-        (new Audio('ding.wav')).play();
-    }
+    // if (data.level + 1 <= data.chars.length - 1) {
+    //     (new Audio('ding.wav')).play();
+    // }
     l = Math.min(data.level + 1, data.chars.length);
     set_level(l);
 }
